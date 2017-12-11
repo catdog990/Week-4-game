@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ok</title>
+<!-- Linking local Javascript file -->
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+<!-- Linking local css file -->
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<!-- Bootstrap File -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+
+
+
+
+<!-- Device compatibility -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div>
+	<h1>Computer Guess:<span id="computerNumber"></span></h1>
+</div>
+
+<div id="images">
+	<img class="robin-image" src="http://images2.fanpop.com/image/photos/11400000/Robin-teen-titans-boys-11494057-431-500.gif" alt="robin" height="100">
+
+	<img class="cyborg-image" src="https://vignette2.wikia.nocookie.net/fictional-battle-omniverse/images/7/75/Cyborg_Teen_Titans.png/revision/latest?cb=20160708083827" alt="cyborg" height="100">
+
+	<img class="raven-image" src="https://static.comicvine.com/uploads/original/12/121824/2399955-Raven_tv.jpg" alt="raven" height="100">
+
+	<img class="starfire-image" src="http://www.absoluteanime.com/teen_titans/starfire.jpg" alt="starfire" height="100">
+
+	<img class="beast-boy-image" src="https://vignette.wikia.nocookie.net/avatar/images/4/43/Beast_Boy_ANU.jpg/revision/latest?cb=20130207003405" alt="beast-boy" height="100">
+
+</div>
+
+<h1>Player Score:<span id="playerScore"></span></h1>
+
+<script>
+
+
+$(document).ready(function(){
+
+	var randoNumber1 = Math.floor(Math.random() * 12) +1;
+	var randoNumber2 = Math.floor(Math.random() * 12) +1;
+	var randoNumber3 = Math.floor(Math.random() * 12) +1;
+	var randoNumber4 = Math.floor(Math.random() * 12) +1;
+	var randoNumber5 = Math.floor(Math.random() * 12) +1;
+// random number for computer//
+	var comNumber = Math.floor(Math.random() * 120) + 1;
+	$('#computerNumber').text(comNumber);
+
+
+
+$(".robin-image").on("click", function(){
+	$("#playerScore").text(randoNumber1);
+
+});
+
+
+$(".cyborg-image").on("click", function(){
+	$("#playerScore").text(randoNumber1 + randoNumber2);
+
+});
+$(".raven-image").on("click", function(){
+	$("#playerScore").text(randoNumber1 + randoNumber2 + randoNumber3);
+});
+
+$(".starfire-image").on("click", function(){
+	$("#playerScore").text(randoNumber1 + randoNumber2 + randoNumber3 + randoNumber4);
+});
+
+$(".beast-boy-image").on("click", function(){
+	$("#playerScore").text(randoNumber1 + randoNumber2 + randoNumber3 + randoNumber4 + randoNumber5);
+});
+
+
+}); 
+</script>
+</body>
+</html>
+
+
+<!-- 1. Create a div, displaying a random number(the number the player will have to match)
+	2. Create 4 buttons (crystals).
+	3. Assign a random number between 1-9 to each crystal
+	4. Create a div, displaying the current number of the player.
+	5. Create a score board assigning wins and losses.
+	6. When a player matches the number or goes over,  wins or losses go up by 1.
+	7. Reset the game.! -->
