@@ -29,7 +29,11 @@
 	<h1>Computer Guess:<span id="computerNumber"></span></h1>
 </div>
 
-<div id="images">
+<div id="crystals">
+	
+</div>
+
+<!-- <div id="images">
 	<img class="robin-image" src="http://images2.fanpop.com/image/photos/11400000/Robin-teen-titans-boys-11494057-431-500.gif" alt="robin" height="100">
 
 	<img class="cyborg-image" src="https://vignette2.wikia.nocookie.net/fictional-battle-omniverse/images/7/75/Cyborg_Teen_Titans.png/revision/latest?cb=20160708083827" alt="cyborg" height="100">
@@ -40,7 +44,7 @@
 
 	<img class="beast-boy-image" src="https://vignette.wikia.nocookie.net/avatar/images/4/43/Beast_Boy_ANU.jpg/revision/latest?cb=20130207003405" alt="beast-boy" height="100">
 
-</div>
+</div> -->
 
 <h1>Player Score:<span id="playerScore"></span></h1>
 
@@ -49,39 +53,70 @@
 
 $(document).ready(function(){
 
-	var randoNumber1 = Math.floor(Math.random() * 12) +1;
-	var randoNumber2 = Math.floor(Math.random() * 12) +1;
-	var randoNumber3 = Math.floor(Math.random() * 12) +1;
-	var randoNumber4 = Math.floor(Math.random() * 12) +1;
-	var randoNumber5 = Math.floor(Math.random() * 12) +1;
+	// var randoNumber1 = Math.floor(Math.random() * 12) +1;
+	// var randoNumber2 = Math.floor(Math.random() * 12) +1;
+	// var randoNumber3 = Math.floor(Math.random() * 12) +1;
+	// var randoNumber4 = Math.floor(Math.random() * 12) +1;
+	// var randoNumber5 = Math.floor(Math.random() * 12) +1;
 // random number for computer//
-	var comNumber = Math.floor(Math.random() * 120) + 1;
-	$('#computerNumber').text(comNumber);
+// 	var comNumber = Math.floor(Math.random() * 120) + 1;
+// 	$('#computerNumber').text(comNumber);
 
 
 
-$(".robin-image").on("click", function(){
-	$("#playerScore").text(randoNumber1);
+// $(".robin-image").on("click", function(){
+// 	$("#playerScore").text(randoNumber1);
 
-});
+// });
 
 
-$(".cyborg-image").on("click", function(){
-	$("#playerScore").text(randoNumber1 + randoNumber2);
+// $(".cyborg-image").on("click", function(){
+// 	$("#playerScore").text(randoNumber1 + randoNumber2);
 
-});
-$(".raven-image").on("click", function(){
-	$("#playerScore").text(randoNumber1 + randoNumber2 + randoNumber3);
-});
+// });
+// $(".raven-image").on("click", function(){
+// 	$("#playerScore").text(randoNumber1 + randoNumber2 + randoNumber3);
+// });
 
-$(".starfire-image").on("click", function(){
-	$("#playerScore").text(randoNumber1 + randoNumber2 + randoNumber3 + randoNumber4);
-});
+// $(".starfire-image").on("click", function(){
+// 	$("#playerScore").text(randoNumber1 + randoNumber2 + randoNumber3 + randoNumber4);
+// });
 
-$(".beast-boy-image").on("click", function(){
-	$("#playerScore").text(randoNumber1 + randoNumber2 + randoNumber3 + randoNumber4 + randoNumber5);
-});
+// $(".beast-boy-image").on("click", function(){
+// 	$("#playerScore").text(randoNumber1 + randoNumber2 + randoNumber3 + randoNumber4 + randoNumber5);
+// });
+var playerCounter = 0;
+var targetNumber = Math.floor(Math.random() * 120) +1;
+$("#computerNumber").text(targetNumber);
 
+
+var options = [2, 4, 7, 12];
+
+for(var i=0; i < options.length; i++){
+	var image = $("<img>");
+
+	image.addClass("robin-image");
+
+	image.attr("src", "http://images2.fanpop.com/image/photos/11400000/Robin-teen-titans-boys-11494057-431-500.gif");
+
+	image.attr("data-imagevalue", options[i]);
+
+	$("#crystals").append(image);	
+}
+
+$(".robin-image").on('click', function(){
+	var imageValue = ($(this).attr("data-imagevalue"));
+
+	imageValue = parseInt(imageValue);
+
+	playerCounter += imageValue;
+
+	$('#playerScore').text(playerCounter);
+
+	if (playerCounter === targetNumber) {
+		
+	}
+})
 
 }); 
 </script>
